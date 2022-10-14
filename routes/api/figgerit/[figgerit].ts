@@ -25,7 +25,7 @@ const FIGGERITS = [
         ]
     },
     {
-        phrase: "PEACE OF CAKE",
+        phrase: "PIECE OF CAKE",
         trivia: "Peace of cake",
         type: "Proverbs",
         clues: [
@@ -37,8 +37,18 @@ const FIGGERITS = [
 ]
 
 export const handler = (_req: Request, _ctx: HandlerContext): Response => {
-    const randomIndex = Math.floor(Math.random() * FIGGERITS.length);
-    const body = JSON.stringify(FIGGERITS[randomIndex]);
+    if(parseInt(_ctx.params.figgerit) > FIGGERITS.length || parseInt(_ctx.params.figgerit) < 1){
+        const body = JSON.stringify({ message: "NOT FOUND" });
+        return new Response(body, {
+            status: 404,
+            headers: {
+            "content-type": "application/json; charset=utf-8",
+            },
+        });
+    }
+
+    // const randomIndex = Math.floor(Math.random() * FIGGERITS.length);
+    const body = JSON.stringify(FIGGERITS[parseInt(_ctx.params.figgerit)-1]);
     return new Response(body);
   };
   
