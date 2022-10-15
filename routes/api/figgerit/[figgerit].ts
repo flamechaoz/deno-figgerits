@@ -3,6 +3,16 @@ import { HandlerContext } from "$fresh/server.ts";
 // problems by figgerits game
 const FIGGERITS = [
     {
+        phrase: "PIECE OF CAKE",
+        trivia: "Peace of cake",
+        type: "Proverbs",
+        clues: [
+            { clue: "Poker ___", answer: "FACE" },
+            { clue: "The top or highest point of something", answer: "PEAK" },
+            { clue: "A space or a room used to work in", answer: "OFFICE" },
+        ]
+    },
+    {
         phrase: "CLEOPATRA WAS GREEK, NOT EGYPTIAN, AS MANY PEOPLE TEND TO BELIEVE",
         trivia: "Cleopatra was Greek, not Egyptian, as many people tend to believe",
         type: "Historical Fact",
@@ -22,16 +32,6 @@ const FIGGERITS = [
             { clue: "She has a very high self-___", answer: "ESTEEM" },
             { clue: "Item from a first-aid kit", answer: "BANDAGE" },
             { clue: "One who makes a public speech", answer: "SPEAKER" },
-        ]
-    },
-    {
-        phrase: "PIECE OF CAKE",
-        trivia: "Peace of cake",
-        type: "Proverbs",
-        clues: [
-            { clue: "Poker ___", answer: "FACE" },
-            { clue: "The top or highest point of something", answer: "PEAK" },
-            { clue: "A space or a room used to work in", answer: "OFFICE" },
         ]
     },
 ]
