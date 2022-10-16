@@ -1,4 +1,5 @@
 import { Handlers, PageProps } from "$fresh/server.ts";
+import "https://deno.land/x/dotenv@v3.2.0/load.ts";
 
 interface IClue {
   clue: string,
@@ -26,7 +27,8 @@ export const handler: Handlers<IFiggerit | null> = {
   async GET(_, ctx) {
     const { figgerit } = ctx.params;
 
-    const response = await fetch(`http://localhost:8000/api/figgerit/${figgerit}`);
+    console.log(Deno.env.get("BASE_URL"));
+    const response = await fetch(`${Deno.env.get("BASE_URL")}/api/figgerit/${figgerit}`);
     if (response.status === 404) {
       return ctx.render(null);
     }
