@@ -14,7 +14,7 @@ interface IFiggerit {
   ]
 }
 
-const MAX_CHARS_PER_LINE = 15;
+const MAX_CHARS_PER_LINE = 12;
 const MAX_WORDS_PER_LINE = 3;
 const FILTER_ARRAY: (string|number)[] = [" ", ",", "."];
 
@@ -46,38 +46,36 @@ export default function FiggeritPage({ data, ...props }: PageProps<IFiggerit | n
   const numberedUniqeLetters = perLetter.filter(onlyUnique);
   const words: string[] = data.phrase.split(" ");
 
-  console.log(words);
-
   return(
     <>
-      <div className="p-8 mx-auto max-w-screen-lg bg-yellow-300">
+      <div className="mt-14 p-8 mx-auto max-w-screen-md">
 
-        <div className="mb-14">figgerit problem # {props.params.figgerit}</div>
+        <div className="flex flex-row flex-wrap gap-2 justify-center">
+          <div className="flex flex-col items-center justify-center">
+            <div className="text-xl font-bold">{data.type}</div>
+            <div className="mb-14 text-gray-500">Figgerit # {props.params.figgerit}</div>
+          </div>
+        </div>
 
-        <div className="grid grid-cols-12 gap-4">
+        <div className="flex flex-row flex-wrap gap-4 justify-center">
           {
             words.map((value) => {
-              
+
               return (
-                <>
+                <div className="flex flex-row">
                   { value.split("").map((character, index, array) => {
   
                     return(
-                        <div className="bg-blue-400 flex flex-col items-center justify-center">
-                          <div>{character}</div>
-                          <div>-</div>
-                          <div>{ numberedUniqeLetters.indexOf(character)+1 }
-                          </div>
-                        </div>
+                      <div className="text-xl flex flex-col items-center justify-center m-1">
+                        <div class="text-gray-500">{character}</div>
+                        <div className="flex flex-row items-center justify-center border-black border-t-1 w-5">{ numberedUniqeLetters.indexOf(character)+1 }</div>
+                      </div>
                     )
   
                   })}
-                  <div className="bg-yellow-300 flex flex-col items-center justify-center">
-                    <div></div>
-                  </div>
-                </>
-                    
+                </div>
               )
+
             })
           }
         </div>

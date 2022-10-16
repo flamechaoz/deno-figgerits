@@ -19,18 +19,6 @@ interface IFiggerit {
 }
 
 export default function Figgerit(props: FiggeritProps) {
-  const [figgerit, setFiggerit] = useState<IFiggerit>();
-
-  const fetchFiggerit = async () => {
-    const response = await fetch('/api/figgerit');
-    // convert the data to json
-    const json = await response.json();
-    setFiggerit(json);
-  }
-
-  useEffect(() => {
-    fetchFiggerit();
-  }, []);
 
   return (
     <>

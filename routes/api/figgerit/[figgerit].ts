@@ -4,7 +4,7 @@ import { HandlerContext } from "$fresh/server.ts";
 const FIGGERITS = [
     {
         phrase: "PIECE OF CAKE",
-        trivia: "Peace of cake",
+        trivia: "Piece of cake",
         type: "Proverbs",
         clues: [
             { clue: "Poker ___", answer: "FACE" },
@@ -13,7 +13,7 @@ const FIGGERITS = [
         ]
     },
     {
-        phrase: "CLEOPATRA WAS GREEK, NOT EGYPTIAN, AS MANY PEOPLE TEND TO BELIEVE",
+        phrase: "CLEOPATRA WAS GREEK NOT EGYPTIAN AS MANY PEOPLE TEND TO BELIEVE",
         trivia: "Cleopatra was Greek, not Egyptian, as many people tend to believe",
         type: "Historical Fact",
         clues: [
