@@ -4,18 +4,24 @@
 
 import config from "./deno.json" assert { type: "json" };
 import * as $0 from "./routes/[name].tsx";
-import * as $1 from "./routes/api/joke.ts";
-import * as $2 from "./routes/index.tsx";
+import * as $1 from "./routes/api/figgerit/[figgerit].ts";
+import * as $2 from "./routes/api/joke.ts";
+import * as $3 from "./routes/figgerits/[figgerit].tsx";
+import * as $4 from "./routes/index.tsx";
 import * as $$0 from "./islands/Counter.tsx";
+import * as $$1 from "./islands/Figgerit.tsx";
 
 const manifest = {
   routes: {
     "./routes/[name].tsx": $0,
-    "./routes/api/joke.ts": $1,
-    "./routes/index.tsx": $2,
+    "./routes/api/figgerit/[figgerit].ts": $1,
+    "./routes/api/joke.ts": $2,
+    "./routes/figgerits/[figgerit].tsx": $3,
+    "./routes/index.tsx": $4,
   },
   islands: {
     "./islands/Counter.tsx": $$0,
+    "./islands/Figgerit.tsx": $$1,
   },
   baseUrl: import.meta.url,
   config,
