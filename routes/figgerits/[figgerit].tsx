@@ -1,5 +1,4 @@
 import { Handlers, PageProps } from "$fresh/server.ts";
-import "https://deno.land/x/dotenv@v3.2.0/load.ts";
 
 interface IClue {
   clue: string,
@@ -19,16 +18,25 @@ const MAX_CHARS_PER_LINE = 12;
 const MAX_WORDS_PER_LINE = 3;
 const FILTER_ARRAY: (string|number)[] = [" ", ",", "."];
 
-const onlyUnique = (value:string, index:number, self:string[]) => {
+const onlyUnique = (value: string, index: number, self: string[]) => {
   return self.indexOf(value) === index && !FILTER_ARRAY.includes(value);
+}
+
+const removeSlugs = (originalUrl: string, numRemove: number) => {
+  const parts = originalUrl.split("/");
+  for (let ctr = 0; ctr < numRemove; ctr++) {
+    parts.pop();
+  }
+  return parts.join('/');
 }
 
 export const handler: Handlers<IFiggerit | null> = {
   async GET(_, ctx) {
     const { figgerit } = ctx.params;
 
-    console.log(Deno.env.get("BASE_URL"));
-    const response = await fetch(`${Deno.env.get("BASE_URL")}/api/figgerit/${figgerit}`);
+    const baseUrl = removeSlugs(_.url, 2);
+
+    const response = await fetch(`${baseUrl}/api/figgerit/${figgerit}`);
     if (response.status === 404) {
       return ctx.render(null);
     }
