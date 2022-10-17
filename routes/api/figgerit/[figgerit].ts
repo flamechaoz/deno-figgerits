@@ -49,6 +49,10 @@ export const handler = (_req: Request, _ctx: HandlerContext): Response => {
 
     // const randomIndex = Math.floor(Math.random() * FIGGERITS.length);
     const body = JSON.stringify(FIGGERITS[parseInt(_ctx.params.figgerit)-1]);
-    return new Response(body);
+    return new Response(body, {
+        headers: {
+            "content-type": "application/json; charset=utf-8",
+        },
+    });
   };
   
