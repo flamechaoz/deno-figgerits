@@ -36,8 +36,6 @@ export const handler: Handlers<IFiggerit | null> = {
 
     const baseUrl = removeSlugs(_.url, 2);
 
-    console.log(baseUrl);
-
     const response = await fetch(`${baseUrl}/api/figgerit/${figgerit}`);
     if (response.status === 404) {
       return ctx.render(null);
