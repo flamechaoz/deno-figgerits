@@ -34,6 +34,7 @@ export const handler = (_req: Request, _ctx: HandlerContext): Response => {
   const body = JSON.stringify({
     datetime: `${year}-${month}-${date}T${hours}:${minutes}:${seconds}`,
   });
+  
   return new Response(body, {
     headers: {
       "content-type": "application/json; charset=utf-8",
